@@ -1,34 +1,28 @@
-package me.didia.monlift.entities;
+package com.poolmycar.domain;
 
-import java.security.Principal;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.googlecode.objectify.annotation.Entity;
-import com.googlecode.objectify.annotation.Id;
-import com.googlecode.objectify.annotation.Index;
 /**
- * UserResponse class
- * SuperClass to all typer of users in the program
- * Abstract to avoid being directly used
+ * by ukb
  */
-@Entity
-public class User extends AbstractEntity implements Principal {
-
-	@Id private Long id;
+@Document(collection = "users")
+public class User {
+	@Id
+	private String id;	
 	private String firstname;
 	private String lastname;
-	@Index private String email;
-	private String phone;
-	@Index private String username;
+	private String email;
+	private long phone;
+	private String username;
 	private String password;
-	@Index private boolean isDriver = false;
+	private boolean isDriver = false;
+	private String description;
 	
-	public User(){
-		
-	}
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getFirstname() {
@@ -43,28 +37,18 @@ public class User extends AbstractEntity implements Principal {
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
-	public String getFullName(){
-		return this.firstname + " " + this.lastname;
-	}
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPhone() {
+	public long getPhone() {
 		return phone;
 	}
-	public void setPhone(String phone) {
+	public void setPhone(long phone) {
 		this.phone = phone;
 	}
-	public boolean isDriver() {
-		return isDriver;
-	}
-	public void setDriver(boolean driver) {
-		this.isDriver = driver;
-	}
-	
 	public String getUsername() {
 		return username;
 	}
@@ -72,17 +56,28 @@ public class User extends AbstractEntity implements Principal {
 		this.username = username;
 	}
 	public String getPassword() {
-		
-		return this.password;
+		return password;
 	}
-	public void setPassword(String password)
-	{
+	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	@Override
-	public String getName() {
-
-		return email;
+	public boolean isDriver() {
+		return isDriver;
 	}
+	public void setDriver(boolean isDriver) {
+		this.isDriver = isDriver;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getProfession() {
+		return profession;
+	}
+	public void setProfession(String profession) {
+		this.profession = profession;
+	}
+	private String profession;
 }
