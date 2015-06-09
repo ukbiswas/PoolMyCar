@@ -1,5 +1,6 @@
 package com.poolmycar.domain;
 
+import org.springframework.core.style.ToStringCreator;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -18,6 +19,7 @@ public class User {
 	private String password;
 	private boolean isDriver = false;
 	private String description;
+	private String profession;
 	
 	public String getId() {
 		return id;
@@ -79,5 +81,8 @@ public class User {
 	public void setProfession(String profession) {
 		this.profession = profession;
 	}
-	private String profession;
+	
+	public String toString() {
+		return "userName="+username+ " email="+email;
+	}
 }
