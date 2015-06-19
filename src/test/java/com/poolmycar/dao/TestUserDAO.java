@@ -21,7 +21,7 @@ public class TestUserDAO extends BaseSpringJunit{
 		user.setPhone(9775213029l);
 		user.setProfession("s/w engg");
 		user.setDescription("I love to offer a lift");
-		userDAO.saveUser(user);
+		//userDAO.saveUser(user);
 	}
 
 }

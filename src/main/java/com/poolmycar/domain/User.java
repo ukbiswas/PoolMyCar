@@ -1,6 +1,5 @@
 package com.poolmycar.domain;
 
-import org.springframework.core.style.ToStringCreator;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
